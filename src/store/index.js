@@ -6,30 +6,76 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     songList: [
-      {
+      { 
+        id: 1,
         artist: "Lady Gaga",
-        song: "Rain On Me"
+        songName : "Rain On Me"
       },
       {
+        id: 2,
         artist: "Jawsh 685",
-        song: "Savage Love"
+        songName: "Savage Love"
       },
       {
+        id: 3,
         artist: "Dura Lipa",
-        song: "Break My Heart"
+        songName: "Break My Heart"
       },
       {
+        id: 4,
         artist: "Chris Brown",
-        song: "Go Crazy"
+        songName: "Go Crazy"
       },
       {
+        id: 5,
         artist: "Jason Derulo",
-        song: "Take You Dancing"
+        songName: "Take You Dancing"
       },
-    ],
+      {
+        id: 6,
+        artist: "Joel Corry",
+        songName: "Head & Heart"
+      },
+      {
+        id: 7,
+        artist: "Selena Gomez",
+        songName: "Lose You To Love Me"
+      },
+      {
+        id: 8,
+        artist: "Raye",
+        songName: "Secrets"
+      },
+      {
+        id: 9,
+        artist: "Jack Harlow",
+        songName: "Whats Poppin"
+      },
+      {
+        id: 10,
+        artist: "Drake",
+        songName: "Laugh Now Cry Later"
+      }],
     playList: []
   },
-  mutations: {},
+  mutations: {
+    songMove: function(state, idSelection) {
+      for(let i=0; i<state.songList.length; i++) {
+        if(state.songList[i].id == idSelection) {
+          state.playList.push(state.songList[i]);
+          state.songList.splice(i, 1);
+        }
+      }
+    },
+    songMoveBack: function(state, idSelection) {
+      for(let i=0; i<state.playList.length; i++) {
+        if(state.playList[i].id == idSelection) {
+          state.songList.push(state.playList[i]);
+          state.playList.splice(i, 1);
+        }
+      }
+    }
+  },
   actions: {},
   modules: {}
 });
