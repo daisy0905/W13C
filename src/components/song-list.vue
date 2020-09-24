@@ -50,7 +50,7 @@ export default {
 
   .song {
     width: 20vw;
-    height: 5vh;
+    height: 10vh;
     background-color: lightskyblue;
     padding: 0.5em 0 0.5em 0;
     border-radius: 2em;
